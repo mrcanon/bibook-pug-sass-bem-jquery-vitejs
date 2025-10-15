@@ -1,0 +1,11 @@
+include ../components/_mixins
+doctype html
+html(lang="en")
+  head
+    include ../components/_head
+  body
+    .wrapper
+      include ../components/_header
+      block content
+      include ../components/_footer
+    include ../components/_script

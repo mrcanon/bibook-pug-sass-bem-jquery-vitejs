@@ -1,0 +1,34 @@
+section.register
+	.container
+		h3.register__heading VSK <span>không bán cho bạn một khóa học - chúng tôi cung cấp cho bạn một giải pháp</span>
+		p.register__explain Chính xác hơn là bạn đang đầu tư một giải pháp hiệu quả để giúp con yêu của bạn được ngoan ngoãn, tính tình vui vẻ, ít quấy khóc, phát triển tốt nhất cả về thể chất và tinh thần. Đồng thời giúp bạn có một cuộc sống sau sinh nhẹ nhàng hơn.
+		p.register__notice Bạn có muốn DÀNH TẶNG món quà tuyệt vời này cho con yêu không?
+		p.register__invitation Ưu đãi dành riêng cho bạn, nếu mua sớm ngay bây giờ
+		.register__pricing <span class="register__pricing-old">890.000đ</span> <span class="register__pricing-only">Chỉ còn</span> <span class="register__pricing-new">599.000đ</span>
+		.register__deadline
+			p Ưu đãi giá này sẽ hết hiệu lực sau:
+			.register__countdown(data-countdown="2025/11/25 12:34:56")
+		.register__form
+			.row
+				.col-xs-12.col-sm-6
+					.register__control
+						label.register__label(for="your_name") Họ và tên
+						input.form-control#your_name(type="text" name="your_name" placeholder="Họ và tên")
+				.col-xs-12.col-sm-6
+					.register__control
+						label.register__label(for="your_phone") Số điện thoại
+						input.form-control#your_phone(type="tel" name="your_phone" placeholder="Số điện thoại")
+						.register__suggest Số điện thoại sẽ chính là tài khoản đăng nhập của bạn
+			.register__action
+				a.register__btn#register__btn(href="#modal--register" data-fancybox="true")
+					span Mua chương trình thai giáo
+			p.register__time Trước tuần 30 của thai kỳ, bạn vẫn còn <strong>nguyên cơ hội,</strong> <br>nhưng sau tuần 30 bạn chỉ còn <i>dưới 50% cơ hội</i> để cải thiện tình trạng quấy khóc <br>và cho con một khởi đầu tốt nhất
+			p.register__support Nếu bạn cần được trợ giúp và tư vấn thêm
+			.register__utility
+				.register__item.register__item--chart
+					a(href="#" title="Chat với chúng tôi") Chat với chúng tôi
+				.register__option hoặc
+				.register__item.register__item--call
+					a(href="tel:09360570846") GẶP CHUYÊN GIA <span>0936 0570 846</span>
+///.register
+= '\n'

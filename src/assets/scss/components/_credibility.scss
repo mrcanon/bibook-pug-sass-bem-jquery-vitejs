@@ -1,0 +1,136 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:math';
+
+.panel-credibility {
+  position: relative;
+  padding-top: 44px;
+  margin-bottom: 92px;
+
+  &::before {
+    content: '';
+    display: block;
+    background: $color-nine;
+    height: 1px;
+    position: absolute;
+    left: math.div($grid-gutter-width, 2);
+    right: math.div($grid-gutter-width, 2);
+    top: 18px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    @include size(96px, 48px);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -48px;
+    @include sprite(0 -48px, #fff);
+  }
+}
+
+.panel-credibility__heading {
+  font-family: $font-taviraj;
+  font-size: 32px;
+  color: $color-primary;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+
+  span {
+    display: block;
+    font-family: $font-lobster;
+    font-size: 30px;
+    color: $color-seven;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 2px;
+    @include line-height(36px, 30px);
+  }
+}
+
+.panel-credibility__block {
+  margin-bottom: 20px;
+}
+
+.panel-credibility__title {
+  color: $color-primary;
+  text-transform: uppercase;
+  @include line-height(22px, 18px);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.credibility-item {
+  max-width: 320px;
+  margin: 0 auto 35px;
+}
+
+.credibility-item__media {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.credibility-item__summary {
+  color: #404040;
+  @include line-height(20px, 16px);
+}
+
+@include breakpoint(sm) {
+  .panel-credibility {
+    padding-top: 41px;
+    margin-bottom: 43px;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .panel-credibility__heading {
+    margin-bottom: 28px;
+  }
+
+  .panel-credibility__block {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+
+  .panel-credibility__note {
+    max-width: 800px;
+    margin: -3px auto 22px;
+
+    p {
+      text-align: center;
+      @include line-height(19px, 16px);
+    }
+
+    .panel-credibility__title {
+      margin-bottom: 18px;
+
+      span {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .panel-credibility__title {
+
+    span {
+      display: block;
+      text-transform: none;
+      font-size: 16px;
+      color: #404040;
+    }
+  }
+
+  .credibility-item {
+    margin-bottom: 22px;
+  }
+
+  .credibility-item__summary {
+    @include line-height(19.8px, 16px);
+  }
+}

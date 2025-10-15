@@ -1,0 +1,120 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.panel-pricing__summary {
+  @include line-height(21px, 18px);
+}
+
+.panel-pricing__note {
+  @include line-height(20px, 16px);
+}
+
+.panel-pricing__summary,
+.panel-pricing__note {
+  margin-bottom: 22px;
+
+  span {
+    color: $color-ten;
+  }
+}
+
+
+.panel-pricing__heading {
+  font-size: 30px;
+  text-transform: uppercase;
+  color: $color-primary;
+  text-align: center;
+  font-family: $font-taviraj;
+  margin-bottom: 40px;
+
+  span {
+    display: block;
+    font-family: $font-lobster;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 6px;
+    color: $color-seven;
+  }
+}
+
+.panel-pricing__title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.panel-pricing__media {
+  text-align: center;
+}
+
+.panel-pricing__summary {
+  color: $color-black;
+  font-size: 18px;
+}
+
+@include breakpoint(sm) {
+  .panel-pricing {
+    background: url(../../img/bg-credibility-pc.jpg) no-repeat 50% 100%;
+    position: relative;
+    padding-top: 55px;
+    padding-bottom: 45px;
+    margin-bottom: 15px;
+    background-size: 100% auto;
+
+    &::after {
+      content: '';
+      display: block;
+      @include size(56px, 48px);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -28px;
+      @include sprite(0 0);
+    }
+  }
+
+  .panel-pricing__note {
+    margin-bottom: 16px;
+  }
+
+  .panel-pricing__summary {
+    margin-bottom: 22px;
+  }
+
+  .panel-pricing__media {
+    margin-bottom: 44px;
+  }
+
+  .panel-pricing__block {
+    padding-top: 46px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .panel-pricing__heading {
+    margin-bottom: 25px;
+
+    span {
+      margin-top: 4px;
+    }
+  }
+
+  .panel-pricing__title {
+    margin-top: 43px;
+  }
+}
+
+@include breakpoint(md) {
+  .panel-pricing {
+    background-size: auto;
+  }
+
+  .panel-pricing__block {
+    max-width: 640px;
+    padding-left: 20px;
+  }
+
+  .panel-pricing__media {
+    margin-right: 57px;
+  }
+}

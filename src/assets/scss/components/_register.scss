@@ -1,0 +1,496 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:math';
+
+.register {
+  background: url(../../img/bg-register.jpg) no-repeat 50% 100%;
+  background-size: 100% auto;
+  margin-left: math.div($grid-gutter-width, -2);
+  margin-right: math.div($grid-gutter-width, -2);
+  position: relative;
+  margin-bottom: 152px;
+  padding: 12px math.div($grid-gutter-width, 2) 20px;
+}
+
+.register__heading {
+  color: $color-primary;
+  font: 600 28px $font-taviraj;
+  text-transform: uppercase;
+  text-align: center;
+  @include line-height(33px, 28px);
+  margin-bottom: 16px;
+
+  span {
+    font-family: $font-lobster;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 2px;
+    color: $color-black;
+    @include line-height(35px, 30px);
+  }
+}
+
+.register__explain,
+.register__notice,
+.register__invitation {
+  text-align: center;
+}
+
+.register__explain {
+  font-size: 18px;
+  @include line-height(21px, 18px);
+  color: $color-black;
+  margin-bottom: 2px;
+}
+
+.register__notice {
+  font-size: 22px;
+  color: #d0040c;
+  @include line-height(26px, 22px);
+  margin-bottom: 47px;
+}
+
+
+.register__invitation {
+  font-size: 20px;
+  color: #ff6215;
+  font-weight: 600;
+  @include line-height(30px, 20px);
+}
+
+.register__pricing {
+  background: #fcffca;
+  padding: 11px 20px;
+  margin-bottom: 1px;
+
+  span {
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 35px;
+  }
+}
+
+.register__pricing-old,
+.register__pricing-new {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.register__pricing-old {
+  text-decoration: line-through;
+  color: $color-black;
+}
+
+.register__pricing-only {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: $color-black;
+}
+
+.register__pricing-new {
+  color: #a83f93;
+}
+
+.register__deadline {
+  background: #f5f5f5;
+  padding: 9px 20px 4px;
+  text-align: center;
+  margin-bottom: 25px;
+
+  p {
+    font-size: 20px;
+    color: $color-black;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+}
+
+.register__countdown {
+  font-size: 0;
+  text-align: center;
+}
+
+.register__control {
+  margin-bottom: 15px;
+}
+
+.register__label {
+  font-size: 18px;
+  color: #7b7b7b;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.register__suggest {
+  font-size: 14px;
+  color: #7b7b7b;
+  margin-top: 11px;
+}
+
+.register__action {
+  margin-top: 13px;
+  margin-bottom: 30px;
+}
+
+.register__btn {
+  display: table;
+  width: 100%;
+  height: 84px;
+  outline: none;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  border: 0;
+  border-radius: 8px;
+  transition: background .3s;
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 10px;
+  }
+
+
+  &:hover {
+    background: rgba($color-primary, .8);
+    text-decoration: none;
+    color: $color-white;
+  }
+}
+
+.countdown {
+  display: inline-block;
+  margin-left: 7px;
+  margin-right: 7px;
+  text-transform: uppercase;
+
+  &:nth-child(1),
+  &:nth-child(2) {
+
+    .countdown__time {
+      color: #c20000;
+    }
+  }
+}
+
+.countdown__time {
+  font-size: 32px;
+  color: $color-black;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.countdown__unit {
+  font-size: 15px;
+  color: #737373;
+}
+
+.register__time {
+  font: 400 24px $font-lobster;
+  color: $color-primary;
+  text-align: center;
+  margin-bottom: 140px;
+
+  br {
+    display: none;
+  }
+
+  strong,
+  i {
+    display: block;
+    color: #bb8901;
+  }
+
+  i {
+    font-style: normal;
+  }
+
+  strong {
+    font-weight: 400;
+    font-size: 30px;
+  }
+}
+
+.register__support {
+  font-size: 20px;
+  color: $color-black;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.register__utility {
+  position: absolute;
+  left: 0;
+  bottom: -152px;
+  width: 100%;
+  height: 152px;
+  padding: 2px $grid-gutter-width;
+}
+
+.register__item {
+  max-width: 343px;
+  margin: 16px auto;
+  text-align: left;
+
+  a {
+    display: block;
+    line-height: 23px;
+    padding: 10px 10px 10px 58px;
+    position: relative;
+    border-radius: 8px;
+    text-decoration: none;
+
+    &::before {
+      content: '';
+      display: block;
+      @include square(32px);
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      margin-top: -16px;
+    }
+  }
+}
+
+.register__item--chart {
+
+  a {
+    font-size: 20px;
+    color: $color-white;
+    background: #69a1ff;
+
+    &::before {
+      @include sprite(-72px 0);
+    }
+  }
+}
+
+.register__item--call {
+  text-transform: uppercase;
+
+  a {
+    font: 600 16px $font-oswald;
+    color: #636363;
+    background: #f5ebc9;
+
+    &::before {
+      @include sprite(-104px 0);
+    }
+
+    span {
+      margin-left: 10px;
+      font: 600 22px $font-roboto;
+      color: #538900;
+      white-space: nowrap;
+    }
+  }
+}
+
+.register__option {
+  display: none;
+}
+
+@include breakpoint(xs) {
+  .register__pricing-only {
+    font-size: 16px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .register__pricing-old,
+  .register__pricing-new {
+    font-size: 20px;
+  }
+
+  .register__item--chart {
+    a {
+      font-size: 18px;
+    }
+  }
+
+  .register__item--call {
+
+    a {
+      font-size: 15px;
+
+      span {
+        margin-left: 3px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .register {
+    background-image: url(../../img/bg-register-pc.jpg);
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+
+  .register__heading {
+    font-size: 32px;
+    margin-bottom: 17px;
+
+    span {
+      font-size: 32px;
+    }
+  }
+
+  .register__explain {
+    font-size: 20px;
+    @include line-height(30px, 20px);
+    margin-bottom: 6px;
+    max-width: 996px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .register__notice {
+    display: none;
+  }
+
+  .register__pricing,
+  .register__deadline {
+    max-width: 470px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .register__pricing {
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .register__deadline {
+    padding-top: 5px;
+    margin-bottom: 19px;
+  }
+
+  .register__form {
+    max-width: 746px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 18px;
+
+    .row {
+      margin-left: -11px;
+      margin-right: -11px;
+    }
+
+    [class^="col"] {
+      padding-left: 11px;
+      padding-right: 11px;
+    }
+
+    .form-control {
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .register__control {
+    margin-bottom: 12px;
+  }
+
+  .register__action {
+    max-width: 448px;
+    margin: 0 auto 40px;
+  }
+
+  .register__label {
+    display: none;
+  }
+
+  .register__suggest {
+    margin-top: 6px;
+  }
+
+  .register__time {
+    background: rgba(#fff, .4);
+    position: relative;
+    font-size: 28px;
+    padding-top: 15px;
+    @include line-height(34px, 28px);
+    padding-bottom: 20px;
+    margin-bottom: 16px;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 2000px;
+      height: 100%;
+      background: rgba(#fff, .4);
+    }
+
+    &::before {
+      left: -2000px;
+    }
+
+    &::after {
+      right: -2000px;
+    }
+
+    strong,
+    i {
+      display: inline-block;
+      color: #a83f93;
+      font-size: 28px;
+    }
+
+    br {
+      display: block;
+    }
+  }
+
+  .register__utility {
+    position: static;
+    text-align: center;
+    margin-left: -100px;
+    margin-right: -100px;
+    padding-top: 11px;
+    padding-bottom: 20px;
+    width: auto;
+    height: auto;
+  }
+
+  .register__option {
+    font-size: 20px;
+    color: $color-black;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .register__option,
+  .register__item {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .register__item--chart {
+    min-width: 288px;
+  }
+
+  .register__item--call {
+    min-width: 344px;
+  }
+}
+
+@include breakpoint(md) {
+  .register {
+    background-size: auto;
+  }
+
+  .register__time {
+    margin-left: -100px;
+    margin-right: -100px;
+  }
+}

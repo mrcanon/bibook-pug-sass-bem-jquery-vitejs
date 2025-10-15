@@ -1,0 +1,32 @@
+extends layouts/_full-width.pug
+block head
+  +head(
+  'Homepage | Bibook',
+  'description',
+  'keywords',
+  'description_social',
+  'image_social',
+  'url_social',
+  'type_social'
+  )
+
+block content
+  include components/_reason
+  include components/_solution
+  include components/_course
+  include components/_utility
+  include components/_credibility
+  include components/_pricing
+  include components/_testimonial
+  include components/_adherence
+  include components/_register
+  include components/_video
+  include components/_modal-register
+  include components/_modal-payment
+  include components/_modal-recharge
+  include components/_modal-refill
+  include components/_modal-finish
+  include components/_modal-delivery
+
+block script 
+  +script('main.js')

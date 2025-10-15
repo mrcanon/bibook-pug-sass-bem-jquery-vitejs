@@ -1,0 +1,57 @@
+.modal.modal--register#modal--register
+  .modal__content
+    .row
+      .col-sm-4
+      .col-sm-8
+        ul.step
+          li.step__item.step__item--active.step__item--finish
+            .step__number 1
+            .step__desc TẠO TÀI KHOẢN
+          li.step__item
+            .step__number 2
+            .step__desc THANH TOÁN
+    .row
+      .col-sm-4
+      .col-sm-8
+        h3.modal__heading TẠO TÀI KHOẢN
+    form#register-form(action="index.html" data-form="validate")
+      .row
+        .col-sm-4
+          label.modal__label(for="reg_phone") Điện thoại*
+        .col-sm-8
+          .form-group
+            input.modal__control#reg_phone(type="tel" name="reg_phone" value="0978665423")
+      .row
+        .col-sm-4
+          label.modal__label(for="reg_name") Họ tên*
+        .col-sm-8
+          .form-group
+            input.modal__control#reg_name(type="text" name="reg_name" value="Lê Kim Lan")
+      .row
+        .col-sm-4
+          label.modal__label(for="reg_pass") Mật khẩu*
+        .col-sm-8
+          .form-group
+            input.modal__control#reg_pass(type="password" name="reg_pass")
+      .row
+        .col-sm-4
+          label.modal__label(for="reg_pass_confirm") Xác nhận mật khẩu*
+        .col-sm-8
+          .form-group
+            input.modal__control#reg_pass_confirm(type="password" name="reg_pass_confirm")
+      .row
+        .col-sm-4
+        .col-sm-8
+          .modal__recaptcha
+            .g-recaptcha(data-sitekey="6LcopOIrAAAAAIpvmA1uQN2v4Y3m5hZsMoshhkLo")
+      .row
+        .col-sm-2
+        .col-sm-10
+          .modal__notice
+            p Số điện thoại sẽ chính là tài khoản đăng nhập của bạn hãy chắc chắn rằng bạn đã nhập đúng số điện thoại của mình
+      .row
+        .col-sm-4
+        .col-sm-8
+          .modal__handle
+            button.modal__submit(type="submit") TẠO TÀI KHOẢN & THANH TOÁN
+          .modal__other Bạn đã có tài khoản? <a href="#" title="Đăng nhập">Đăng nhập</a>

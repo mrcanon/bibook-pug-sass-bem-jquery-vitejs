@@ -1,0 +1,155 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.panel-utility {
+	position: relative;
+	padding-top: 64px;
+
+	&::after {
+		content: '';
+		display: block;
+		@include size(56px, 48px);
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -28px;
+		@include sprite(0 0);
+	}
+}
+
+.panel-utility__heading {
+	font-size: 32px;
+	margin-top: 0;
+	margin-bottom: 12px;
+	color: $color-primary;
+	text-align: center;
+	text-transform: uppercase;
+
+	span {
+		display: block;
+		font-family: $font-lobster;
+		font-weight: 400;
+		font-size: 30px;
+		color: #383838;
+		text-transform: none;
+		margin-top: 9px;
+	}
+}
+
+.utility-item__title {
+	font-family: $font-lobster;
+	font-weight: 400;
+	font-size: 26px;
+	text-align: center;
+}
+
+.utility-item__media {
+	text-align: center;
+
+	img {
+		border-radius: 50%;
+	}
+}
+
+.utility-item {
+	max-width: 370px;
+	margin: 0 auto 28px;
+}
+
+.utility-item--baby {
+
+	.utility-item__title {
+		color: $color-five;
+	}
+
+	li {
+
+		&::before {
+			@include sprite(-56px 0);
+		}
+	}
+}
+
+.utility-item--mommy {
+
+	.utility-item__title {
+		color: $color-six;
+	}
+
+	li {
+
+		&::before {
+			@include sprite(-56px -16px);
+		}
+	}
+}
+
+.utility-item__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #404040;
+	@include line-height(19px);
+
+	li {
+		position: relative;
+		padding: 10px 0 9px 25px;
+
+		&::before {
+			content: '';
+			display: block;
+			@include square(16px);
+			position: absolute;
+			left: 0;
+			top: 12px;
+		}
+	}
+}
+
+@include breakpoint(sm) {
+	.panel-utility {
+		padding-top: 60px;
+		padding-bottom: 30px;
+		margin-bottom: 40px;
+		background: url(../../img/bg-utility-pc.jpg) no-repeat 50% 100%;
+		background-size: 100% auto;
+	}
+
+	.panel-utility__heading {
+		max-width: 1000px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 8px;
+
+		span {
+			@include line-height(40px, 30px);
+			margin-top: 6px;
+		}
+	}
+
+	.panel-utility__content {
+		padding-left: 45px;
+		padding-right: 45px;
+	}
+
+	.utility-item {
+		max-width: 380px;
+	}
+
+	.utility-item__media {
+		margin-bottom: 13px;
+	}
+
+	.utility-item__list {
+
+		li {
+			padding-bottom: 10px;
+		}
+	}
+}
+
+@include breakpoint(md) {
+	.panel-utility {
+		background-size: auto;
+	}
+}

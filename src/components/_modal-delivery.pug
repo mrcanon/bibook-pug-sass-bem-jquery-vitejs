@@ -1,0 +1,45 @@
+.modal.modal--delivery#modal--delivery
+  .modal__content
+    .row
+      .col-sm-3
+      .col-sm-9
+        ul.step
+          li.step__item.step__item-active.step__item--finish
+            .step__number 1
+            .step__desc TẠO TÀI KHOẢN
+          li.step__item.step__item-active
+            .step__number 2
+            .step__desc THANH TOÁN
+    h3.modal__heading thanh toán
+    p.modal__message-delivery <span>Giao hàng tận nơi - nhận thẻ rồi thanh toán </span><br>(Bạn sẽ nhận được thẻ trong 24h nếu ở Hà Nội - các tỉnh thành khác là 2-3 ngày<br>Thẻ được giao trong giờ hành chính - các tỉnh ngoài Hà Nội không tính thứ 7 - Chủ Nhật)
+    form#delivery-form(action="index.html" data-form="validate")
+      .row
+        .col-sm-3
+          label.modal__label(for="delivery_name") Tên người nhận thẻ
+        .col-sm-9
+          .form-group
+            input.modal__control#delivery_name(type="text" name="delivery_name" value="Lê Kim Lan")
+      .row
+        .col-sm-3
+          label.modal__label(for="delivery_phone") Số điện thoại liên hệ
+        .col-sm-9
+          .form-group
+            input.modal__control#delivery_phone(type="number" name="delivery_phone" value="0978665423")
+      .row
+        .col-sm-3
+          label.modal__label(for="delivery_address") Địa chỉ nhận thẻ
+        .col-sm-9
+          .form-group
+            textarea.modal__control#delivery_address(name="delivery_address")
+      .row
+        .col-sm-3
+          label.modal__label(for="delivery_note") Ghi chú
+        .col-sm-9
+          .form-group
+            input.modal__control#delivery_note(type="text" name="delivery_note")
+      .row
+        .col-sm-3
+        .col-sm-9
+          .modal__handle
+            button.modal__submit(type="submit") ĐẶT MUA THẺ
+          a.modal__back(href="#modal--payment" data-src="#modal--payment" data-modal="show" data-id="modal--payment-form") Quay lại chọn hình thức thanh toán khác

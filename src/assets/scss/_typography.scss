@@ -1,0 +1,324 @@
+@use 'variables' as *;
+@use 'mixins' as mixins;
+@use 'sass:math';
+
+//
+// Typography
+// --------------------------------------------------
+// Reset the box-sizing
+//
+// Heads up! This reset may cause conflicts with some third-party widgets.
+// For recommendations on resolving such conflicts, see
+// http://getbootstrap.com/getting-started/#third-box-sizing
+* {
+  @include mixins.box-sizing(border-box);
+
+  &::before,
+  &::after {
+    @include mixins.box-sizing(border-box);
+  }
+}
+
+// Body reset
+html {
+  -webkit-tap-highlight-color: $color-highlight;
+  font-size: 10px;
+}
+
+body {
+  background-color: $base-background-color;
+  color: $base-font-color;
+  font: #{$base-font-weight} #{$base-font-size}/#{$base-line-height} #{$base-font-family};
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+// Links
+a {
+  color: $color-link;
+  text-decoration: none;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+// Figures
+//
+// We reset this here because previously Normalize had no `figure` margins. This
+// ensures we don't break anyone's use of the element.
+
+figure {
+  margin: 0;
+}
+
+// Images
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+// Horizontal rules
+hr {
+  border-top: 1px solid $color-hr-border;
+  margin-bottom: $line-height-computed;
+  margin-top: $line-height-computed;
+}
+
+// iOS "clickable elements" fix for role="button"
+//
+// Fixes "clickability" issue (and more generally, the firing of events such as focus as well)
+// for traditionally non-focusable elements with role="button"
+// see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+[role='button'] {
+  cursor: pointer;
+}
+
+
+// Headings
+// -------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $base-headings-color;
+  font-family: $base-headings-font-family;
+  font-weight: $base-headings-font-weight;
+  line-height: $base-headings-line-height;
+
+  small {
+    color: $headings-small-color;
+    font-weight: normal;
+    line-height: 1;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: math.div($line-height-computed, 2);
+  margin-top: $line-height-computed;
+
+  small {
+    font-size: 65%;
+  }
+}
+
+h4,
+h5,
+h6 {
+  margin-bottom: math.div($line-height-computed, 2);
+  margin-top: math.div($line-height-computed, 2);
+
+  small {
+    font-size: 75%;
+  }
+}
+
+h1 {
+  font-size: $base-h1-font-size;
+}
+
+h2 {
+  font-size: $base-h2-font-size;
+}
+
+h3 {
+  font-size: $base-h3-font-size;
+}
+
+h4 {
+  font-size: $base-h4-font-size;
+}
+
+h5 {
+  font-size: $base-h5-font-size;
+}
+
+h6 {
+  font-size: $base-h6-font-size;
+}
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 (math.div($line-height-computed, 2));
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small {
+  font-size: math.floor(100% * math.div($base-font-size-small, $base-font-size));
+}
+
+mark {
+  background-color: $color-warning-bg;
+  padding: .2em;
+}
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-bottom: math.div($line-height-computed, 2);
+  margin-top: 0;
+
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// Description Lists
+dl {
+  margin-bottom: $line-height-computed;
+  margin-top: 0; // Remove browser default
+}
+
+dt,
+dd {
+  line-height: $base-line-height;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr {
+
+  &[title] {
+    border-bottom: 1px dotted $abbr-border-color;
+    cursor: help;
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 5px solid $blockquote-border-color;
+  font-size: $blockquote-font-size;
+  margin: 0 0 $line-height-computed;
+  padding: math.div($line-height-computed, 2) $line-height-computed;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small {
+    color: $blockquote-small-color;
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: $base-line-height;
+
+    &::before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+// Addresses
+address {
+  font-style: normal;
+  line-height: $base-line-height;
+  margin-bottom: $line-height-computed;
+}
+
+//
+// Code (inline and block)
+// --------------------------------------------------
+
+
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+  font-family: $base-font-monospace;
+}
+
+// Inline code
+code {
+  background-color: $color-code-bg;
+  border-radius: $border-radius-base;
+  color: $color-code-text;
+  font-size: 90%;
+  padding: 2px 4px;
+}
+
+// User input typically entered via keyboard
+kbd {
+  background-color: $color-kbd-bg;
+  border-radius: $border-radius-small;
+  box-shadow: inset 0 -1px 0 $color-black-opacity-25;
+  color: $color-kbd-text;
+  font-size: 90%;
+  padding: 2px 4px;
+
+  kbd {
+    box-shadow: none;
+    font-size: 100%;
+    font-weight: bold;
+    padding: 0;
+  }
+}
+
+// Blocks of code
+pre {
+  background-color: $color-pre-bg;
+  border: 1px solid $color-pre-border-color;
+  border-radius: $border-radius-base;
+  color: $color-pre-text;
+  display: block;
+  font-size: ($base-font-size - 1); // 14px to 13px
+  line-height: $base-line-height;
+  margin: 0 0 (math.div($line-height-computed, 2));
+  padding: (math.div(($line-height-computed - 1), 2));
+  word-break: break-all;
+  word-wrap: break-word;
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+    white-space: pre-wrap;
+  }
+}

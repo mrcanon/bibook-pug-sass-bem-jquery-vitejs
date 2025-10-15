@@ -1,0 +1,27 @@
+.modal.modal--payment#modal--payment
+  .modal__content
+    ul.step
+      li.step__item.step__item-active.step__item--finish
+        .step__number 1
+        .step__desc TẠO TÀI KHOẢN
+      li.step__item.step__item-active
+        .step__number 2
+        .step__desc THANH TOÁN
+    .modal__message Chúc mừng <span>Lê Kim Lan</span> đã tạo tài khoản thành công
+    h3.modal__heading thanh toán
+    .modal__suggest Chọn một trong các hình thức thanh toán dưới đây
+    ul.modal__method
+      li
+        a.modal__table(href="#" data-modal="show" data-id="modal--delivery-form" data-src="#modal--delivery")
+          span.modal__cell
+            span.modal__payment-title Thanh toán qua chuyển khoản online (internet banking)
+            span.modal__payment-desc Bạn sẽ được tặng 100K vào tài khoản nếu chọn hình thức thanh toán này
+      li
+        a.modal__table(href="#" data-modal="show" data-id="modal--recharge-form" data-src="#modal--recharge")
+          span.modal__cell
+            span.modal__payment-title Thanh toán qua thẻ cào điện thoại (Viettel, Vina, Mobi)
+      li
+        a.modal__table(href="#" data-modal="show" data-id="modal--delivery-form" data-src="#modal--delivery")
+          span.modal__cell
+            span.modal__payment-title Giao hàng tận nhà (Nhận thẻ rồi thanh toán)
+            span.modal__payment-desc Bạn sẽ nhận được thẻ sau 1 đến 3 ngày

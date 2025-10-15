@@ -1,0 +1,45 @@
+.modal.modal--recharge#modal--recharge
+  .modal__content
+    .row
+      .col-sm-3
+      .col-sm-9
+        ul.step-list
+          li.step__item.step__item-active.step__item--finish
+            .step__number 1
+            .step__desc TẠO TÀI KHOẢN
+          li.step__item.step__item-active
+            .step__number 2
+            .step__desc THANH TOÁN
+    h3.modal__heading thanh toán
+    p.modal__message-card Bạn đã nạp thành công: <span class="modal__pricing-success">300.000 đồng</span>.<br>Còn thiếu <span class="modal__pricing-missing">199.000 đồng</span> nữa để thanh toán chương trình THAI GIÁO
+    p.modal__message-phone Thanh toán qua thẻ cào điện thoại - chọn loại thẻ
+    form#recharge-form(action="index.html" data-form="validate")
+      .modal__group.modal__group--radio
+        label.modal__radio
+          input(type="radio" name="networking", checked=true)
+          span Mobifone
+        label.modal__radio
+          input(type="radio" name="networking")
+          span Vinaphone
+        label.modal__radio
+          input(type="radio" name="networking")
+          span Viettel
+      .row
+        .col-sm-3
+          label.modal__label(for="card_series") Số series
+        .col-sm-9
+          .form-group
+            input.modal__control#card_series(type="number" name="card_series")
+      .row
+        .col-sm-3
+          label.modal__label(for="card_pin") Số PIN (mã thẻ)
+        .col-sm-9
+          .form-group
+            input.modal__control#card_pin(type="number" name="card_pin")
+            p.modal__recharge-suggest Cào lớp phủ bạc bạn sẽ thấy số PIN <br>Số series là dãy số in sẵn bên ngoài lớp phủ bạc
+      .row
+        .col-sm-3
+        .col-sm-9
+          .modal__handle
+            button.modal__submit(type="submit") NẠP THẺ
+          a.modal__back(href="#" data-src="#modal--payment" data-modal="show" data-id="modal--payment-form") Quay lại chọn hình thức thanh toán khác

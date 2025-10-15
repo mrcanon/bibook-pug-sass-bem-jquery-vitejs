@@ -1,0 +1,143 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.adherence {
+	position: relative;
+	padding-top: 64px;
+	counter-reset: join;
+
+	&::after {
+		content: '';
+		display: block;
+		@include size(56px, 48px);
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -28px;
+		@include sprite(0 0);
+	}
+}
+
+.adherence__heading {
+	font-size: 30px;
+	color: $color-primary;
+	font-family: $font-taviraj;
+	text-transform: uppercase;
+	max-width: 360px;
+	margin: 0 auto 18px;
+	text-align: center;
+
+	span {
+		display: block;
+		font: 400 30px $font-lobster;
+		text-transform: none;
+		color: #383838;
+		margin-top: 2px;
+		@include line-height(35px, 30px);
+	}
+}
+
+.adherence-item {
+	max-width: 320px;
+	margin: 0 auto 15px;
+}
+
+.adherence-item__media {
+	text-align: center;
+	position: relative;
+	margin-bottom: 12px;
+
+	&::after {
+		counter-increment: join;
+		content: counter(join);
+		display: inline-block;
+		font: 600 26px $font-times-new-roman;
+		@include line-height(28px, 26px);
+		text-align: center;
+		@include square(32px);
+		border-radius: 50%;
+		background: $color-thirteen;
+		border: 2px solid $color-white;
+		color: $color-white;
+		position: absolute;
+		left: 50%;
+		bottom: -14px;
+		margin-left: -16px;
+	}
+}
+
+.adherence-item__title {
+	font: 400 22px $font-lobster;
+	color: #383838;
+	text-align: center;
+	margin-bottom: 9px;
+}
+
+.adherence-item__summary {
+	font-size: 15px;
+	@include line-height(18px, 15px);
+	margin-bottom: 9px;
+}
+
+.adherence-item__handle {
+	text-align: center;
+	font-size: 0;
+	margin-bottom: 15px;
+
+	a {
+		display: inline-block;
+		margin-left: 5px;
+		margin-right: 5px;
+		opacity: .6;
+		transition: opacity .3s;
+		max-width: calc(50% - 10px);
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+.adherence-item__other,
+.adherence-item__option {
+	font-size: 15px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+.adherence-item__option {
+
+	a {
+		color: $color-ten;
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+}
+
+@include breakpoint(sm) {
+	.adherence {
+		margin-bottom: 12px;
+	}
+
+	.adherence__heading {
+		max-width: none;
+		margin-bottom: 33px;
+
+		span {
+			margin-top: 3px;
+		}
+	}
+
+	.adherence__content {
+		max-width: 1030px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.adherence-item__summary {
+		margin-bottom: 6px;
+	}
+}
