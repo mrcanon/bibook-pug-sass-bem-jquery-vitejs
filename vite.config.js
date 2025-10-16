@@ -2,15 +2,23 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { viteConvertPugInHtml } from '@mish.dev/vite-convert-pug-in-html';
 import inject from '@rollup/plugin-inject';
+const isProd = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+
+const injectConfig = isProd === 'production' ? {
+  $: 'jquery',
+  jQuery: 'jquery',
+  'window.jQuery': 'jquery',
+  include: '**/*.js'
+} : {
+  $: 'jquery',
+  jQuery: 'jquery',
+  'window.jQuery': 'jquery'
+};
+
 
 export default defineConfig({
   plugins: [viteConvertPugInHtml(),
-    inject({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      include: '**/*.js'
-    })
+  inject(injectConfig)
   ],
   root: 'src',
   resolve: {
