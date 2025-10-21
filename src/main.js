@@ -12,8 +12,8 @@ import { Fancybox } from "@fancyapps/ui";
 // **********************************************************************//
 // ! Owl Slider
 // **********************************************************************//
-var owlCarousel = function () {
-  var $owlCarousel = $('[data-carousel]'),
+const owlCarousel = function () {
+  const $owlCarousel = $('[data-carousel]'),
     defaults = {
       items: 3,
       loop: false,
@@ -39,14 +39,14 @@ var owlCarousel = function () {
   if ($owlCarousel.length > 0) {
     $owlCarousel.each(function () {
       // config mode
-      var configs = $(this).data('carousel'),
+      const configs = $(this).data('carousel'),
         opts = $.extend({}, defaults, configs),
         $scope = $('.' + $(this).data('scope')),
         $prev = $scope.find('.' + $(this).data('prev')),
         $next = $scope.find('.' + $(this).data('next'));
 
       // Run owl carousel with option merged
-      var owl = $(this).owlCarousel(opts);
+      const owl = $(this).owlCarousel(opts);
 
       // Trigger next
       $next.on('click', function () {
@@ -64,12 +64,12 @@ var owlCarousel = function () {
 // **********************************************************************//
 // ! Scroll to item
 // **********************************************************************//
-var scrollTo = function () {
-  var $scrollItem = $('[data-action="scroll"]');
+const scrollTo = function () {
+  const $scrollItem = $('[data-action="scroll"]');
 
   $scrollItem.on('click', function (e) {
     e.preventDefault();
-    var $target = $($(this).attr('href')) || $('#' + $(this).data('target')),
+    const $target = $($(this).attr('href')) || $('#' + $(this).data('target')),
       offset = parseInt($(this).data('offset')) || 0;
     $('html, body').animate({
       scrollTop: $target.offset().top - offset
@@ -80,8 +80,8 @@ var scrollTo = function () {
 // **********************************************************************//
 // ! Check hash
 // **********************************************************************//
-var scrollToHash = function () {
-  var $target = $(window.location.hash),
+const scrollToHash = function () {
+  const $target = $(window.location.hash),
     offset = $target.data('offset') || 0;
 
   if ($target.length > 0) {
@@ -94,8 +94,8 @@ var scrollToHash = function () {
 // **********************************************************************//
 // ! Countdown timer
 // **********************************************************************//
-var countDownTimer = function () {
-  var $countDown = $('[data-countdown]'),
+const countDownTimer = function () {
+  const $countDown = $('[data-countdown]'),
     countDownHtml = '<div class="countdown"><div class="countdown__time">%-D</div><div class="countdown__unit">Ngày</div></div>' +
       '<div class="countdown"><div class="countdown__time">%H</div><div class="countdown__unit">Giờ</div></div>' +
       '<div class="countdown"><div class="countdown__time">%M</div><div class="countdown__unit">Phút</div></div>' +
@@ -104,8 +104,7 @@ var countDownTimer = function () {
   if ($countDown.length > 0) {
 
     $countDown.each(function () {
-      // var datetime = $(this).data('countdown');
-      const datetime = new Date();
+      const datetime = $(this).data('countdown');
       datetime.setDate(datetime.getDate() + 10);
 
       $(this)
@@ -120,7 +119,7 @@ var countDownTimer = function () {
 // **********************************************************************//
 // ! Show modal payment
 // **********************************************************************//
-var modalShow = function () {
+const modalShow = function () {
   const $modal = $('[data-modal="show"]');
 
   $modal.each(function () {
@@ -134,8 +133,8 @@ var modalShow = function () {
 // **********************************************************************//
 // ! Validate form
 // **********************************************************************//
-var validateForm = function () {
-  var $registerForm = $('#register-form'),
+const validateForm = function () {
+  const $registerForm = $('#register-form'),
     $rechargeForm = $('#recharge-form'),
     $deliveryForm = $('#delivery-form');
 
@@ -359,13 +358,13 @@ var validateForm = function () {
 // **********************************************************************//
 // ! Fancybox Modal
 // **********************************************************************//
-var modalRegister = function () {
-  var $registerBtn = $('#register__btn', '.register');
+const modalRegister = function () {
+  const $registerBtn = $('#register__btn', '.register');
 
   $registerBtn.on('click', function (e) {
     e.preventDefault();
 
-    var $this = $(this),
+    const $this = $(this),
       target = $this.attr('href'),
       yourName = $.trim($('#your_name', '.register').val()),
       yourPhone = $.trim($('#your_phone', '.register').val());

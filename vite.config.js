@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { viteConvertPugInHtml } from '@mish.dev/vite-convert-pug-in-html';
 import inject from '@rollup/plugin-inject';
 const isProd = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-
+const basePath = isProd === 'production' ? '/bibook-pug-sass-bem-jquery-vitejs/' : '/';
 const injectConfig = isProd === 'production' ? {
   $: 'jquery',
   jQuery: 'jquery',
@@ -17,6 +17,7 @@ const injectConfig = isProd === 'production' ? {
 
 
 export default defineConfig({
+  base: basePath,
   plugins: [viteConvertPugInHtml(),
   inject(injectConfig)
   ],
@@ -29,7 +30,7 @@ export default defineConfig({
   },
   build: {
     minify: false,
-    outDir: '../dist',
+    outDir: '../docs',
     emptyOutDir: true,
     cssCodeSplit: true,
     assetsDir: 'assets',
